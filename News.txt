@@ -1,0 +1,73 @@
+package StreamAPI;
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class News {
+
+	int newsId;
+	String postedByUser;
+	String commentByUser;
+	String comment;
+
+	public News(int newsId, String postedByUser, String commentByUser, String comment) {
+		super();
+		this.newsId = newsId;
+		this.postedByUser = postedByUser;
+		this.commentByUser = commentByUser;
+		this.comment = comment;
+	}
+
+	public int getNewsId() {
+		return newsId;
+	}
+
+	public void setNewsId(int newsId) {
+		this.newsId = newsId;
+	}
+
+	public String getPostedByUser() {
+		return postedByUser;
+	}
+
+	public void setPostedByUser(String postedByUser) {
+		this.postedByUser = postedByUser;
+	}
+
+	public String getCommentByUser() {
+		return commentByUser;
+	}
+
+	public void setCommentByUser(String commentByUser) {
+		this.commentByUser = commentByUser;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+	public static void main(String[] args) {
+
+		List<News> list = Arrays.asList(
+				new News(1, "AAA", "ZZZ", "Amit Shah offers prayers at Sri Kapileswara Swamy Temple in Tirupati"),
+				new News(2, "BBB", "YYY", "Kejriwal govt submits affidavit in Supreme Court,ready for lockdown"),
+				new News(3, "CCC", "XXX","Dengue cases surge to over 5,200 in Delhi,highest spike since 2015"),
+				new News(4, "DDD", "WWW","RBI unions threaten to go on mass casual leave on Nov30 wage settlement issue"));
+
+		// Question 5
+		System.out.println("Question 5");
+		int count = (int) list.stream().filter(x -> x.comment.contains("budget")).count();
+		System.out.println(count + "     <<<<---- budget present ");
+
+	}
+
+}

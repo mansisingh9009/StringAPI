@@ -1,0 +1,26 @@
+package StreamAPI;
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class Calories {
+
+	public static void main(String[] args) {
+
+		List<Fruit> fruitslist = Arrays.asList(
+				new Fruit("Guava", 95, 90, "Green"), 
+				new Fruit("Apple", 95, 30, "Red"),
+				new Fruit("Mango", 25, 10, "Yellow"), 
+				new Fruit("Lichi", 10, 10, "Red"),
+				new Fruit("Orange", 15, 20, "Orange")
+				);
+		List<Fruit> sortedList = fruitslist.stream().sorted(Comparator.comparingInt(Fruit::getCalories).reversed())
+				.collect(Collectors.toList());
+		System.out.println("Fruits with calories<100 are:");
+		sortedList.forEach(System.out::println);
+
+	}
+
+}
